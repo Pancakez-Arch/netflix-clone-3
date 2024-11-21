@@ -1,16 +1,13 @@
 import { NextPageContext } from "next";
 import { getSession } from "next-auth/react";
 import Navbar from "../components/Navbar";
+import Billboard from "@/components/Billboard";
 
-/**
- * 
- * hello 
- */
 
 
 export async function getServerSideProps(context: NextPageContext) {
   const session = await getSession(context);
-
+/** If no session, redirect to the sign in page */
   if (!session) {
     return {
       redirect: {
@@ -29,6 +26,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      <Billboard />
     </>
   )
 }
