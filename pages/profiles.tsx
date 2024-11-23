@@ -3,22 +3,7 @@ import { getSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import useCurrentUser from "@/hooks/useCurrentUser";
 
-export async function getServerSideProps(context: NextPageContext) {
-  const session = await getSession(context);
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
-
-  return {
-    props: {},
-  };
-}
 
 const Profiles = () => {
     const router = useRouter();
